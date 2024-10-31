@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Pigeon {
@@ -11,17 +8,30 @@ public class Pigeon {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
+    @ManyToOne
+    @JoinColumn(name = "eleveur_id")
+    private Eleveur eleveur;
     private String ringNumber;
     private String sexe;
     private Integer age;
     private String couleur;
 
-    public Pigeon(long id, String ringNumber, String sexe, Integer age, String couleur) {
+
+    public Pigeon(long id, Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur) {
         this.id = id;
+        this.eleveur = eleveur;
         this.ringNumber = ringNumber;
         this.sexe = sexe;
         this.age = age;
         this.couleur = couleur;
+    }
+    public Eleveur getEleveur() {
+        return eleveur;
+    }
+
+    public void setEleveur(Eleveur eleveur) {
+        this.eleveur = eleveur;
     }
     public Pigeon() {}
     public long getId() {
