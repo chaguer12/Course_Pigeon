@@ -16,7 +16,7 @@ public class Eleveur {
     private String cordGPS;
 
 
-    public Eleveur(String name, String email, String password, String colombierName, String cordGPS) {
+    private Eleveur(String name, String email, String password, String colombierName, String cordGPS) {
         this.name = name;
         this.email = email;
         this.password = password;

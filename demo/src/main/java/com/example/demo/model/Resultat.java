@@ -27,7 +27,7 @@ public class Resultat {
     public Resultat() {
 
     }
-    public Resultat(long id, Competition competition, Pigeon pigeon, double flightTime, double distance, double vitesse, double points) {
+    private Resultat( Competition competition, Pigeon pigeon, double flightTime, double distance, double vitesse, double points) {
         this.id = id;
         this.competition = competition;
         this.pigeon = pigeon;

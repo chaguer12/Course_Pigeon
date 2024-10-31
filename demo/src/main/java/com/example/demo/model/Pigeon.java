@@ -18,7 +18,7 @@ public class Pigeon {
     private String couleur;
 
 
-    public Pigeon(long id, Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur) {
+    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur) {
         this.id = id;
         this.eleveur = eleveur;
         this.ringNumber = ringNumber;

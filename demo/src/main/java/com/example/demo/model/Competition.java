@@ -19,7 +19,7 @@ public class Competition {
     private Date startDate;
     private double distance;
 
-    private Competition(long id, String competitionName, String cordGPS, Date startDate, double distance) {
+    private Competition(String competitionName, String cordGPS, Date startDate, double distance) {
         this.id = id;
         this.competitionName = competitionName;
         this.cordGPS = cordGPS;
@@ -27,6 +27,8 @@ public class Competition {
         this.distance = distance;
 
     }
+
+    public Competition() {}
 
     public double getDistance() {
         return distance;
