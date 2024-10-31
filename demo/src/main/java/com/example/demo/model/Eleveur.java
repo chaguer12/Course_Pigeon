@@ -1,12 +1,8 @@
 package com.example.demo.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import jakarta.persistence.*;
 
-@EntityScan
+@Entity
 @Table(name = "eleveurs")
 public class Eleveur {
     @Id
@@ -26,6 +22,9 @@ public class Eleveur {
         this.password = password;
         this.colombierName = colombierName;
         this.cordGPS = cordGPS;
+    }
+    public Eleveur() {
+
     }
 
     public long getId(){
