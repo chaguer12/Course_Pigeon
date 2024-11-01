@@ -7,3 +7,10 @@ spring:
       uri: mongodb:localhost:27017/pigeon
 server:
   port: 8082
+  spring:
+    data:
+      mongodb:
+        uri: mongodb+srv://ismailouali:mongo@cluster0.osyxt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+debug: true
