@@ -18,15 +18,15 @@ public class PigeonService {
         return pigeonRepository.findAll();
     }
 
-    public Optional<Pigeon> getPigeonById(Long id) {
-        return pigeonRepository.findById(id);
+    public Optional<Pigeon> getPigeonById(int id) {
+        return pigeonRepository.findById((long)id);
     }
 
     public Pigeon savePigeon(Pigeon pigeon) {
         return pigeonRepository.save(pigeon);
     }
 
-    public void deletePigeon(Long id) {
+    public void deletePigeon(long id) {
         pigeonRepository.deleteById(id);
     }
 }
