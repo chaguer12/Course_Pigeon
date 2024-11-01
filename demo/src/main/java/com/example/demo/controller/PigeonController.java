@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 
 import com.example.demo.model.Pigeon;
@@ -20,10 +20,10 @@ public class PigeonController {
         return pigeonService.getAllPigeons();
     }
 
-    @GetMapping("/{id}")
-    public Pigeon getPigeonById(@PathVariable int id){
-        return pigeonService.getPigeonById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Pigeon getPigeonById(@PathVariable int id){
+//        return pigeonService.getPigeonById((int)id);
+//    }
 
     @PostMapping
     public Pigeon createPigeon(@RequestBody Pigeon pigeon){
