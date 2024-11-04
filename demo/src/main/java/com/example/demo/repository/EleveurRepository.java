@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Eleveur;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface EleveurRepository extends JpaRepository<Eleveur, Long> {
+public interface EleveurRepository extends MongoRepository<Eleveur, Long> {
 }

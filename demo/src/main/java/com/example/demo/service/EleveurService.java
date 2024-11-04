@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EleveurService {
@@ -15,8 +16,9 @@ public class EleveurService {
     @Autowired
     private EleveurRepository eleveurRepository;
 
-    public Eleveur getEleveurById(int id) {
-        return eleveurRepository.getReferenceById((long) id);
+    public Eleveur getEleveurById(long id) {
+//  return eleveurRepository.findBy( id);
+        return  null;
     }
     public List<Eleveur> getAllEleveur() {
         return eleveurRepository.findAll();

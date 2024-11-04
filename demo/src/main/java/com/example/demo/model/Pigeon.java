@@ -1,16 +1,15 @@
 package com.example.demo.model;
 
-import jakarta.persistence.*;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Pigeon {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
 
-    @ManyToOne
-    @JoinColumn(name = "eleveur_id")
     private Eleveur eleveur;
     private String ringNumber;
     private String sexe;

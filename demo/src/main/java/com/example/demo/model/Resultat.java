@@ -1,23 +1,17 @@
 package com.example.demo.model;
 
 
-import jakarta.persistence.*;
-import jakarta.persistence.Entity;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-@Entity
+@Document
 public class Resultat {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "competition_id")
     private Competition competition;
 
-    @ManyToOne
-    @JoinColumn(name = "pigeon_id")
+
     private Pigeon pigeon;
 
     private double flightTime;
