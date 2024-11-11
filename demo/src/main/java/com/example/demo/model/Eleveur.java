@@ -15,8 +15,18 @@ public class Eleveur {
     private String colombierName;
     private String cordGPS;
 
+    public Eleveur(long id, String name, String email, String password, String colombierName, String cordGPS) {
 
-    private Eleveur(String name, String email, String password, String colombierName, String cordGPS) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.colombierName = colombierName;
+        this.cordGPS = cordGPS;
+
+    }
+
+    public Eleveur(String name, String email, String password, String colombierName, String cordGPS) {
         this.name = name;
         this.email = email;
         this.password = password;

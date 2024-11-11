@@ -19,7 +19,7 @@ public class Competition {
     private double distance;
 
     private Competition(String competitionName, String cordGPS, Date startDate, double distance) {
-        this.id = id;
+
         this.competitionName = competitionName;
         this.cordGPS = cordGPS;
         this.startDate = startDate;
