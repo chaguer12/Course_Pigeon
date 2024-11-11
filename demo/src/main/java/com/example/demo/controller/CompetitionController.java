@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Competition;
 import com.example.demo.model.Eleveur;
+import com.example.demo.service.CompetitionService;
 import com.example.demo.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,25 +14,25 @@ import java.util.List;
 public class CompetitionController {
 
         @Autowired
-        private CompetitionS eleveurService;
+        private CompetitionService competitionService;
 
         @GetMapping
-        public List<Eleveur> getAllEleveurs() {
-            return eleveurService.getAllEleveur();
+        public List<Competition> getAllCompetitions() {
+            return competitionService.getAllCompetitions();
         }
 
         @GetMapping("/{id}")
-        public Eleveur getEleveurById(@PathVariable int id) {
-            return eleveurService.getEleveurById(id);
+        public Competition getCompetitionById(@PathVariable long id) {
+            return competitionService.getCompetitionById(id);
         }
 
         @PostMapping
-        public Eleveur addEleveur(@RequestBody Eleveur eleveur) {
-            return eleveurService.saveEleveur(eleveur);
+        public Competition addCompetition(@RequestBody Competition competition) {
+            return competitionService.saveCompetition(competition);
         }
 
         @DeleteMapping("/{id}")
-        public void deleteEleveur(@PathVariable int id) {
-            eleveurService.deleteEleveur(id);
+        public void deleteCompetition(@PathVariable int id) {
+            competitionService.deleteCompetition(id);
         }
 }
