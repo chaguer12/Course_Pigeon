@@ -1,4 +1,11 @@
 package com.example.demo.repository;
 
-public interface UserRepoInterface {
+import com.example.demo.model.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepoInterface extends MongoRepository<User, Long> {
+
+
 }

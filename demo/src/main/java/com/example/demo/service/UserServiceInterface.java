@@ -1,4 +1,7 @@
 package com.example.demo.service;
 
-public class UserServiceInterface {
+import com.example.demo.model.User;
+
+public interface UserServiceInterface {
+    User insertUser(User user);
 }

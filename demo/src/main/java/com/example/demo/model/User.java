@@ -1,16 +1,13 @@
-package com.example.demo.entity;
+package com.example.demo.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.annotation.processing.Generated;
-import java.util.Locale;
-import java.util.UUID;
 
 @Document(collection = "users")
 public class User {
     @Id
     private long id;
+    private static long id_starter = 1;
     private String name;
     private int age;
     private String email;
@@ -20,6 +17,7 @@ public class User {
         this.age = age;
         this.email= email;
         this.password = password;
+        this.id = id_starter++;
     }
     public User(){
 
@@ -64,4 +62,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
