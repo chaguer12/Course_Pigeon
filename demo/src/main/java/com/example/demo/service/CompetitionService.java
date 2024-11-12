@@ -2,12 +2,14 @@ package com.example.demo.service;
 
 import com.example.demo.model.Competition;
 import com.example.demo.repository.CompetitionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CompetitionService {
+    @Autowired
     private CompetitionRepository competitionRepository;
 
     public Competition getCompetitionById(long id){

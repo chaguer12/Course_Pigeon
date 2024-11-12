@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,6 +17,8 @@ public class Competition {
     private String competitionName;
     private String cordGPS;
     private Date startDate;
+
+
     private double distance;
 
     private Competition(String competitionName, String cordGPS, Date startDate, double distance) {
@@ -47,5 +50,21 @@ public class Competition {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    public long getId() {
+        return id;
+    }
+    public String getCompetitionName() {
+        return competitionName;
+    }
+    public String getCordGPS() {
+        return cordGPS;
+    }
+    public Date getStartDate() {
+        return startDate;
+    }
+    public double getDistance() {
+        return distance;
     }
 }
