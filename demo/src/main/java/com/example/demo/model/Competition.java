@@ -12,7 +12,7 @@ import java.util.Date;
 @Document
 public class Competition {
     @Id
-    private long id;
+    private String id;
 
     private String competitionName;
     private String cordGPS;
@@ -32,7 +32,7 @@ public class Competition {
 
     public Competition() {}
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,7 +52,7 @@ public class Competition {
         this.distance = distance;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
     public String getCompetitionName() {

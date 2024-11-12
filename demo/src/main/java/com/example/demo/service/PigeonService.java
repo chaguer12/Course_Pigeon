@@ -18,7 +18,7 @@ public class PigeonService {
         return pigeonRepository.findAll();
     }
 
-    public Optional<Pigeon> getPigeonById(long id) {
+    public Optional<Pigeon> getPigeonById(String id) {
         return pigeonRepository.findById(id);
     }
 
@@ -26,7 +26,7 @@ public class PigeonService {
         return pigeonRepository.save(pigeon);
     }
 
-    public void deletePigeon(long id) {
+    public void deletePigeon(String id) {
         pigeonRepository.deleteById(id);
     }
 }

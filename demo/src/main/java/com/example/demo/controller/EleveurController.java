@@ -21,7 +21,7 @@ public class EleveurController {
     }
 
     @GetMapping("/{id}")
-    public Eleveur getEleveurById(@PathVariable int id) {
+    public Eleveur getEleveurById(@PathVariable String id) {
         return eleveurService.getEleveurById(id);
     }
 
@@ -31,7 +31,7 @@ public class EleveurController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEleveur(@PathVariable int id) {
+    public void deleteEleveur(@PathVariable String id) {
         eleveurService.deleteEleveur(id);
     }
 

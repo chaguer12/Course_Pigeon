@@ -16,7 +16,7 @@ public class EleveurService {
     @Autowired
     private EleveurRepository eleveurRepository;
 
-    public Eleveur getEleveurById(long id) {
+    public Eleveur getEleveurById(String id) {
 //  return eleveurRepository.findBy( id);
         return  null;
     }
@@ -30,7 +30,7 @@ public class EleveurService {
     public Eleveur updateEleveur(Eleveur eleveur) {
         return eleveurRepository.save(eleveur);
     }
-    public void deleteEleveur(int id) {
-        eleveurRepository.deleteById((long)id);
+    public void deleteEleveur(String id) {
+        eleveurRepository.deleteById(id);
     }
 }

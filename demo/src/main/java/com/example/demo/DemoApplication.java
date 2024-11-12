@@ -18,12 +18,6 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 
 	}
-	@Bean
-	public CommandLineRunner demoData(EleveurService eleveurService) {
-		return args -> {
-			Eleveur course = new Eleveur(1,"ismail ouali", "ismail@test.com", "root", "Darna", "22-22-22");
-			eleveurService.saveEleveur(course);
-		};
-	}
+
 
 }

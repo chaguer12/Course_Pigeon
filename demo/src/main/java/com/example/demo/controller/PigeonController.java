@@ -31,7 +31,7 @@ public class PigeonController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletePigeon(@PathVariable int id){
+    public void deletePigeon(@PathVariable String id){
         pigeonService.deletePigeon(id);
     }
 

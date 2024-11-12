@@ -12,7 +12,7 @@ public class CompetitionService {
     @Autowired
     private CompetitionRepository competitionRepository;
 
-    public Competition getCompetitionById(long id){
+    public Competition getCompetitionById(String id){
             return competitionRepository.findById(id).get();
     }
     public List<Competition> getAllCompetitions(){
@@ -24,7 +24,7 @@ public class CompetitionService {
     public Competition updateCompetition(Competition competition){
         return competitionRepository.save(competition);
     }
-    public void deleteCompetition(long id){
+    public void deleteCompetition(String id){
         competitionRepository.deleteById(id);
     }
 }
