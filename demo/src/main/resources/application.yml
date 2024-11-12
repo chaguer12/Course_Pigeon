@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: pigeonRace
+  data:
+    mongodb:
+      uri: mongodb+srv://ismailouali:mongo@cluster0.osyxt.mongodb.net/CoursePigeon?retryWrites=true&w=majority&appName=Cluster0
+      auto-index-creation: true
+server:
+  port: 8082
+
+debug: true
