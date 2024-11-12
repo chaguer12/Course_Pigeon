@@ -16,7 +16,18 @@ public class UserService implements UserServiceInterface {
         return user;
     }
 
+    @Override
+    public boolean login(User user) {
+        return true;
+    }
 
+    @Override
+    public void deleteUser(User user) {
+        userRepo.delete(user);
+    }
 
-
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
 }

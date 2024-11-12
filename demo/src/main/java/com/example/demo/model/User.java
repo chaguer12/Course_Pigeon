@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
@@ -10,6 +11,7 @@ public class User {
     private static long id_starter = 1;
     private String name;
     private int age;
+    @Indexed(unique = true)
     private String email;
     private String password;
     public User(String name,int age,String email, String password){
