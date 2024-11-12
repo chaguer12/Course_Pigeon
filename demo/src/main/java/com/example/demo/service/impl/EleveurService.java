@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 
 import com.example.demo.model.Eleveur;
@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EleveurService {

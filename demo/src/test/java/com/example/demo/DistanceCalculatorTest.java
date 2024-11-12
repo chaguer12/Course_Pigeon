@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.service.DistanceCalculator;
+import com.example.demo.service.impl.DistanceCalculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

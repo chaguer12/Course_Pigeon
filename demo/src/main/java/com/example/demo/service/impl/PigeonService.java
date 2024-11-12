@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.model.Pigeon;
 import com.example.demo.repository.PigeonRepository;
