@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Competition;
-import com.example.demo.model.Eleveur;
-import com.example.demo.service.CompetitionService;
-import com.example.demo.service.EleveurService;
+import com.example.demo.service.impl.CompetitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
