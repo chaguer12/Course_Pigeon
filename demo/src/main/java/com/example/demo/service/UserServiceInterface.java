@@ -4,7 +4,6 @@ import com.example.demo.model.User;
 
 public interface UserServiceInterface {
     User insertUser(User user);
-    boolean login(User user);
-    User getUserByEmail(String email);
+    boolean login(String email,String password);
     void deleteUser(User user);
 }

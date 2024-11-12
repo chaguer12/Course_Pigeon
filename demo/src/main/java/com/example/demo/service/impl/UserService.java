@@ -6,6 +6,8 @@ import com.example.demo.service.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class UserService implements UserServiceInterface {
     @Autowired
@@ -17,8 +19,9 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public boolean login(User user) {
-        return true;
+    public boolean login(String email,String password) {
+        User usr = userRepo.findByEmail(email);
+        return email.equals(usr.getEmail()) && password.equals(usr.getPassword());
     }
 
     @Override
@@ -26,8 +29,6 @@ public class UserService implements UserServiceInterface {
         userRepo.delete(user);
     }
 
-    @Override
-    public User getUserByEmail(String email) {
-        return userRepo.findByEmail(email);
-    }
+
+
 }
