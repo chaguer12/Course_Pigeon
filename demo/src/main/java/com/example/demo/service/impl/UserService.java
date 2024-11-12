@@ -3,15 +3,19 @@ package com.example.demo.service.impl;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepoInterface;
 import com.example.demo.service.UserServiceInterface;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 @Service
+@RequiredArgsConstructor
 public class UserService implements UserServiceInterface {
-    @Autowired
-    private UserRepoInterface userRepo;
+
+    private final UserRepoInterface userRepo;
+
     @Override
     public User insertUser(User user){
         userRepo.save(user);
@@ -28,7 +32,16 @@ public class UserService implements UserServiceInterface {
     public void deleteUser(User user) {
         userRepo.delete(user);
     }
+    @Override
+    public User findByEmail(String email){
+        System.out.println("here : "+ userRepo.findById(email));
+        return userRepo.findById(email).orElseThrow(()-> new RuntimeException("not found"));
+    }
 
+    @Override
+    public List<User> findAll() {
+        return userRepo.findAll();
+    }
 
 
 }
