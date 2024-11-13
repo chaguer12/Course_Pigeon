@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Competition;
+import com.example.demo.service.CompetitionServiceInterface;
 import com.example.demo.service.impl.CompetitionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.List;
 public class CompetitionController {
 
 
-        private final CompetitionService competitionService;
+        private final CompetitionServiceInterface competitionService;
 
         @GetMapping
         public List<Competition> getAllCompetitions() {

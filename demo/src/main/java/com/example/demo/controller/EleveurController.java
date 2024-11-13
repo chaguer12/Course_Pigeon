@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.model.Eleveur;
+import com.example.demo.service.ElveurServiceInterface;
 import com.example.demo.service.impl.EleveurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.List;
 public class EleveurController {
 
 
-    private final EleveurService eleveurService;
+    private final ElveurServiceInterface eleveurService;
 
     @GetMapping
     public List<Eleveur> getAllEleveurs() {

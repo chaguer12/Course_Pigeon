@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.model.Pigeon;
+import com.example.demo.service.PigeonServiceInterface;
 import com.example.demo.service.impl.PigeonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PigeonController {
 
-    private final PigeonService pigeonService;
+    private final PigeonServiceInterface pigeonService;
 
     @GetMapping
     public List<Pigeon> getAllPigeons()
