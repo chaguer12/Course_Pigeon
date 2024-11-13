@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface PigeonServiceInterface {
     List<Pigeon> getAllPigeons();
-    Optional<Pigeon> getPigeonById(long id);
+    Optional<Pigeon> getPigeonById(String id);
     Pigeon savePigeon(Pigeon pigeon);
-    void deletePigeon(long id);
+    void deletePigeon(String id);
 }

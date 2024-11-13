@@ -21,7 +21,7 @@ public class PigeonService implements PigeonServiceInterface {
         return pigeonRepository.findAll();
     }
     @Override
-    public Optional<Pigeon> getPigeonById(long id) {
+    public Optional<Pigeon> getPigeonById(String id) {
         return pigeonRepository.findById(id);
     }
     @Override
@@ -29,7 +29,7 @@ public class PigeonService implements PigeonServiceInterface {
         return pigeonRepository.save(pigeon);
     }
     @Override
-    public void deletePigeon(long id) {
+    public void deletePigeon(String id) {
         pigeonRepository.deleteById(id);
     }
 }
