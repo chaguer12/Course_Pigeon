@@ -22,7 +22,7 @@ public class CompetitionController {
         }
 
         @GetMapping("/{id}")
-        public Competition getCompetitionById(@PathVariable long id) {
+        public Competition getCompetitionById(@PathVariable String id) {
             return competitionService.getCompetitionById(id);
         }
 
@@ -32,7 +32,7 @@ public class CompetitionController {
         }
 
         @DeleteMapping("/{id}")
-        public void deleteCompetition(@PathVariable int id) {
+        public void deleteCompetition(@PathVariable String id) {
             competitionService.deleteCompetition(id);
         }
 }

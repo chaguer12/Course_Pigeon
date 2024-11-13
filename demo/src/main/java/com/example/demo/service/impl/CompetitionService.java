@@ -13,7 +13,7 @@ import java.util.List;
 public class CompetitionService implements CompetitionServiceInterface {
     private final CompetitionRepository competitionRepository;
     @Override
-    public Competition getCompetitionById(long id){
+    public Competition getCompetitionById(String id){
             return competitionRepository.findById(id).get();
     }
     @Override
@@ -29,7 +29,7 @@ public class CompetitionService implements CompetitionServiceInterface {
         return competitionRepository.save(competition);
     }
     @Override
-    public void deleteCompetition(long id){
+    public void deleteCompetition(String id){
         competitionRepository.deleteById(id);
     }
 }
