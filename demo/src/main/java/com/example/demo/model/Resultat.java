@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Resultat {
     @Id
-    private long id;
+    private String id;
 
     private Competition competition;
 
@@ -33,11 +33,11 @@ public class Resultat {
     }
 
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
