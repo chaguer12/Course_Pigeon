@@ -15,15 +15,17 @@ public class Pigeon {
     private String sexe;
     private Integer age;
     private String couleur;
+    private Competition competition;
 
 
-    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur) {
+    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur,Competition competition) {
         this.id = id;
         this.eleveur = eleveur;
         this.ringNumber = ringNumber;
         this.sexe = sexe;
         this.age = age;
         this.couleur = couleur;
+        this.competition = competition;
     }
     public Eleveur getEleveur() {
         return eleveur;
@@ -62,5 +64,13 @@ public class Pigeon {
     }
     public void setCouleur(String couleur) {
         this.couleur = couleur;
+    }
+
+    public Competition getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
     }
 }
