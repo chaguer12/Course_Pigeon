@@ -2,13 +2,15 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.Competition;
 import com.example.demo.repository.CompetitionRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CompetitionService {
-    private CompetitionRepository competitionRepository;
+    private final CompetitionRepository competitionRepository;
 
     public Competition getCompetitionById(long id){
             return competitionRepository.findById(id).get();

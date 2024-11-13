@@ -4,7 +4,6 @@ import com.example.demo.model.User;
 import com.example.demo.service.UserServiceInterface;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +31,9 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
-    @PostMapping()
-    public ResponseEntity<User> getUser(@RequestBody String id){
-       User user = service.findByEmail(id);
+    @PostMapping("/test")
+    public ResponseEntity<User> getUser(@RequestBody User email){
+        User user = service.findByEmail(email.getEmail());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(user);
 
     }

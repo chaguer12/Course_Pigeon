@@ -3,17 +3,18 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.Eleveur;
 import com.example.demo.repository.EleveurRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EleveurService {
 
 
-    @Autowired
-    private EleveurRepository eleveurRepository;
+    private final EleveurRepository eleveurRepository;
 
     public Eleveur getEleveurById(long id) {
 //  return eleveurRepository.findBy( id);
