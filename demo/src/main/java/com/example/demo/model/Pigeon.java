@@ -1,37 +1,39 @@
 package com.example.demo.model;
 
 
+import com.example.demo.model.enums.Sexe;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Pigeon {
     @Id
     private String id;
-
-
-    private Eleveur eleveur;
+    private String eleveur;
+    @Indexed(unique = true)
     private String ringNumber;
-    private String sexe;
+    private Sexe sexe;
     private Integer age;
     private String couleur;
 
 
 
-    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur {
+    private Pigeon( String eleveur,String ringNumber, Sexe sexe, Integer age, String couleur ){
         this.id = id;
         this.eleveur = eleveur;
         this.ringNumber = ringNumber;
         this.sexe = sexe;
         this.age = age;
         this.couleur = couleur;
-        
+
     }
-    public Eleveur getEleveur() {
+    public String getEleveur() {
         return eleveur;
     }
 
-    public void setEleveur(Eleveur eleveur) {
+    public void setEleveur(String eleveur) {
         this.eleveur = eleveur;
     }
     public Pigeon() {}
@@ -47,10 +49,10 @@ public class Pigeon {
     public void setRingNumber(String ringNumber) {
         this.ringNumber = ringNumber;
     }
-    public String getSexe() {
+    public Sexe getSexe() {
         return sexe;
     }
-    public void setSexe(String sexe) {
+    public void setSexe(Sexe sexe) {
         this.sexe = sexe;
     }
     public Integer getAge() {
@@ -66,11 +68,5 @@ public class Pigeon {
         this.couleur = couleur;
     }
 
-    public Competition getCompetition() {
-        return competition;
-    }
 
-    public void setCompetition(Competition competition) {
-        this.competition = competition;
-    }
 }
