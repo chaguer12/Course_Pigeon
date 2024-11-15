@@ -6,10 +6,11 @@ import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Getter
+
 @Document
 public class Competition {
     @Id
@@ -20,7 +21,7 @@ public class Competition {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startDate;
     private double distance;
-    private List<String> pigeonRingNumbers;
+    private List<String> pigeonRingNumbers = new ArrayList<>();
     private Competition(String competitionName, String cordGPS, Date startDate, double distance,List<String> pigeonRingNumbers) {
 
         this.competitionName = competitionName;
@@ -55,5 +56,29 @@ public class Competition {
 
     public void setPigeonRingNumbers(List<String> pigeonRingNumbers) {
         this.pigeonRingNumbers = pigeonRingNumbers;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getCompetitionName() {
+        return competitionName;
+    }
+
+    public String getCordGPS() {
+        return cordGPS;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public List<String> getPigeonRingNumbers() {
+        return pigeonRingNumbers;
     }
 }

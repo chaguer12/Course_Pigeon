@@ -14,7 +14,7 @@ public class CompetitionService implements CompetitionServiceInterface {
     private final CompetitionRepository competitionRepository;
     @Override
     public Competition getCompetitionById(String id){
-            return competitionRepository.findById(id).get();
+            return competitionRepository.findById(id).orElseThrow(()-> new RuntimeException("Entity not found"));
     }
     @Override
     public List<Competition> getAllCompetitions(){

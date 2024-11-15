@@ -1,11 +1,14 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.model.Competition;
 import com.example.demo.model.Pigeon;
 import com.example.demo.service.PigeonServiceInterface;
 import com.example.demo.service.impl.PigeonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +39,11 @@ public class PigeonController {
     @DeleteMapping("/{id}")
     public void deletePigeon(@PathVariable String id){
         pigeonService.deletePigeon(id);
+    }
+    @PostMapping("/assign")
+    public ResponseEntity<Competition> assignPigeon(@RequestBody String pigeon,@RequestBody String competition){
+        Competition comp = pigeonService.assignPigeon(pigeon,competition);
+        return new ResponseEntity<Competition>(comp, HttpStatus.ACCEPTED);
     }
 
 
