@@ -1,66 +1,57 @@
 package com.example.demo.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 public class Pigeon {
+    @Setter
+    @Getter
     @Id
     private String id;
 
 
+    @Setter
+    @Getter
     private Eleveur eleveur;
+
+    @Setter
+    @Getter
     private String ringNumber;
+
+    @Setter
+    @Getter
     private String sexe;
+
+    @Getter
+    @Setter
     private Integer age;
+
+    @Setter
+    @Getter
     private String couleur;
 
+    @Setter
+    @Getter
+    private Date arriveDate;
 
-    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur) {
+
+
+    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur, Date arriveDate) {
         this.id = id;
         this.eleveur = eleveur;
         this.ringNumber = ringNumber;
         this.sexe = sexe;
         this.age = age;
         this.couleur = couleur;
-    }
-    public Eleveur getEleveur() {
-        return eleveur;
+        this.arriveDate = arriveDate;
     }
 
-    public void setEleveur(Eleveur eleveur) {
-        this.eleveur = eleveur;
-    }
     public Pigeon() {}
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getRingNumber() {
-        return ringNumber;
-    }
-    public void setRingNumber(String ringNumber) {
-        this.ringNumber = ringNumber;
-    }
-    public String getSexe() {
-        return sexe;
-    }
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
-    }
-    public Integer getAge() {
-        return age;
-    }
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-    public String getCouleur() {
-        return couleur;
-    }
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
-    }
+
 }

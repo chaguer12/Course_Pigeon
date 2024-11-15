@@ -1,48 +1,55 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.service.ExcelServiceInterface;
+import com.example.demo.model.Resultat;
+import com.example.demo.repository.ResultatRepository;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.apache.poi.ss.usermodel.CellType;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.sql.Types.NUMERIC;
-import static javax.management.openmbean.SimpleType.STRING;
-
 @Service
-public class ExcelService implements ExcelServiceInterface {
+public class ExcelService {
 
-    public List<String[]> readExcelFile(String filePath) {
-        List<String[]> data = new ArrayList<>();
-        try (FileInputStream fileInputStream = new FileInputStream(filePath);
-             Workbook workbook = new XSSFWorkbook(fileInputStream)) {
+    @Autowired
+    private ResultatRepository resultatRepository;
 
-            Sheet sheet = workbook.getSheetAt(0); // Lire la première feuille
+    public List<Resultat> readAndSaveResultats(Path filePath) throws IOException {
+        List<Resultat> resultats = new ArrayList<>();
+        try (FileInputStream fis = new FileInputStream(filePath.toFile());
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0); // assuming data is in the first sheet
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
             for (Row row : sheet) {
-                List<String> rowData = new ArrayList<>();
-                for (Cell cell : row) {
-                    switch (cell.getCellType()) {
-                        case STRING:
-                            rowData.add(cell.getStringCellValue());
-                            break;
-                        case NUMERIC:
-                            rowData.add(String.valueOf(cell.getNumericCellValue()));
-                            break;
-                        default:
-                            rowData.add("");
-                    }
+                if (row.getRowNum() == 0) { // Skip header row
+                    continue;
                 }
-                data.add(rowData.toArray(new String[0]));
+
+                Cell cellNumeroBague = row.getCell(0);
+                Cell cellHeureArrivee = row.getCell(1);
+
+                String numeroBague = cellNumeroBague.getStringCellValue();
+                String heureStr = cellHeureArrivee.getStringCellValue();
+                LocalTime heureArrivee = LocalTime.parse(heureStr, timeFormatter);
+
+                Resultat resultat = new Resultat();
+                resultat.setNumeroBague(numeroBague);
+                resultat.setHeureArrivee(heureArrivee);
+
+                resultats.add(resultat);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-        return data;
+
+        // Save all Resultats to the database
+        return resultatRepository.saveAll(resultats);
     }
 }
-
