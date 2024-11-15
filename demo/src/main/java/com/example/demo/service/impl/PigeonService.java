@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -46,12 +48,22 @@ public class PigeonService implements PigeonServiceInterface {
     }
     @Override
     public Competition assignPigeon(String ringNumber, String id){
-        System.out.println("here : " + compRepo.findById("67371bc9a532de3beb88935f"));
-        Competition comp = compRepo.findById("67371bc9a532de3beb88935f").orElseThrow(() -> new RuntimeException("Entity not found"));
+
+        Competition comp = compRepo.findById(id).orElseThrow(() -> new RuntimeException("Entity not found"));
         Pigeon pig = pigeonRepository.findByRingNumber(ringNumber).orElseThrow(() -> new  RuntimeException("Entity not found"));
         System.out.println("comp: "+comp.getId() +" pig: "+pig.getRingNumber());
-        Date now = null;
-        if(comp.getStartDate().after(Date.from(now.toInstant()))){
+        // Format de la date "yyyy-MM-dd HH:mm:ss"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // Obtenir la date actuelle formatée
+        String formattedDate = LocalDateTime.now().format(formatter);
+        LocalDateTime localNow = LocalDateTime.parse(formattedDate, formatter);
+
+        // Conversion de LocalDateTime à java.sql.Date
+        long millis = localNow.atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli();
+        Date now = new Date(millis);
+
+        if(comp.getStartDate().after(now)){
             List<String> ringNumbers = comp.getPigeonRingNumbers();
             ringNumbers.add(ringNumber);
             comp.setPigeonRingNumbers(ringNumbers);
