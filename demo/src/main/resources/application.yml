@@ -9,3 +9,6 @@ server:
   port: 8082
 
 debug: true
+excel:
+  file-path: /path/to/your/excel/file.xlsx
+
