@@ -36,4 +36,5 @@ public class CompetitionController {
         public void deleteCompetition(@PathVariable String id) {
             competitionService.deleteCompetition(id);
         }
+
 }
