@@ -46,9 +46,10 @@ public class PigeonService implements PigeonServiceInterface {
     }
     @Override
     public Competition assignPigeon(String ringNumber, String id){
-        Competition comp = compRepo.findById(id).orElseThrow(() -> new RuntimeException("Entity not found"));
+        System.out.println("here : " + compRepo.findById("67371bc9a532de3beb88935f"));
+        Competition comp = compRepo.findById("67371bc9a532de3beb88935f").orElseThrow(() -> new RuntimeException("Entity not found"));
         Pigeon pig = pigeonRepository.findByRingNumber(ringNumber).orElseThrow(() -> new  RuntimeException("Entity not found"));
-        System.out.println("comp: "+comp +" pig: "+pig);
+        System.out.println("comp: "+comp.getId() +" pig: "+pig.getRingNumber());
         Date now = null;
         if(comp.getStartDate().after(Date.from(now.toInstant()))){
             List<String> ringNumbers = comp.getPigeonRingNumbers();

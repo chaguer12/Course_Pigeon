@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.controller.requests.AssignRequest;
 import com.example.demo.model.Competition;
 import com.example.demo.model.Pigeon;
 import com.example.demo.service.PigeonServiceInterface;
@@ -41,9 +42,10 @@ public class PigeonController {
         pigeonService.deletePigeon(id);
     }
     @PostMapping("/assign")
-    public ResponseEntity<Competition> assignPigeon(@RequestBody String pigeon,@RequestBody String competition){
-        Competition comp = pigeonService.assignPigeon(pigeon,competition);
-        return new ResponseEntity<Competition>(comp, HttpStatus.ACCEPTED);
+    public ResponseEntity<Competition> assignPigeon(@RequestBody AssignRequest req){
+        System.out.println("hnaaaa : " + req.id());
+        Competition comp = pigeonService.assignPigeon(req.ringNumber(), req.id());
+        return  ResponseEntity.status(HttpStatus.FOUND).body(comp);
     }
 
 
