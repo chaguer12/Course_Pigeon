@@ -3,7 +3,11 @@ package com.example.demo.model;
 
 import lombok.Getter;
 import lombok.Setter;
+=======
+import com.example.demo.model.enums.Sexe;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -18,15 +22,21 @@ public class Pigeon {
 
     @Setter
     @Getter
-    private Eleveur eleveur;
+    private String eleveur;
 
     @Setter
     @Getter
+    @Indexed(unique = true)
     private String ringNumber;
 
     @Setter
     @Getter
     private String sexe;
+
+    @Getter
+    @Setter
+
+    private Sexe sexe;
 
     @Getter
     @Setter
@@ -36,22 +46,21 @@ public class Pigeon {
     @Getter
     private String couleur;
 
-    @Setter
-    @Getter
-    private Date arriveDate;
+    
 
 
 
-    private Pigeon( Eleveur eleveur,String ringNumber, String sexe, Integer age, String couleur, Date arriveDate) {
+
+    private Pigeon( String eleveur,String ringNumber, Sexe sexe, Integer age, String couleur ){
         this.id = id;
         this.eleveur = eleveur;
         this.ringNumber = ringNumber;
         this.sexe = sexe;
         this.age = age;
         this.couleur = couleur;
-        this.arriveDate = arriveDate;
     }
 
     public Pigeon() {}
+
 
 }

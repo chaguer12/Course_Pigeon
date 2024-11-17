@@ -11,3 +11,4 @@ public interface CompetitionServiceInterface {
     Competition updateCompetition(Competition competition);
     void deleteCompetition(String id);
 }
+
