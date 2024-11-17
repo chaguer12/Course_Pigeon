@@ -1,9 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Competition;
-import com.example.demo.model.Eleveur;
-import com.example.demo.service.CompetitionService;
-import com.example.demo.service.EleveurService;
+import com.example.demo.service.impl.CompetitionService;
+import com.example.demo.service.CompetitionServiceInterface;
+import com.example.demo.service.impl.CompetitionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/competitions")
+@RequiredArgsConstructor
 public class CompetitionController {
 
-        @Autowired
-        private CompetitionService competitionService;
+
+        private final CompetitionServiceInterface competitionService;
 
         @GetMapping
         public List<Competition> getAllCompetitions() {
@@ -35,4 +37,5 @@ public class CompetitionController {
         public void deleteCompetition(@PathVariable String id) {
             competitionService.deleteCompetition(id);
         }
+
 }

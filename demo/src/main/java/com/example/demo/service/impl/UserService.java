@@ -34,7 +34,6 @@ public class UserService implements UserServiceInterface {
     }
     @Override
     public User findByEmail(String email){
-        System.out.println("here : "+ userRepo.findById(email));
         return userRepo.findById(email).orElseThrow(()-> new RuntimeException("not found"));
     }
 

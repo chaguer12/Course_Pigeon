@@ -1,6 +1,0 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://ismailouali:mongo@cluster0.osyxt.mongodb.net/CoursePeagon?retryWrites=true&w=majority&appName=Cluster0
-
-  debug: true

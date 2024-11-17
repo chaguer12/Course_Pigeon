@@ -1,36 +1,41 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 
 import com.example.demo.model.Eleveur;
 import com.example.demo.repository.EleveurRepository;
+
+import com.example.demo.service.ElveurServiceInterface;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class EleveurService {
+@RequiredArgsConstructor
+public class EleveurService implements ElveurServiceInterface {
 
 
-    @Autowired
-    private EleveurRepository eleveurRepository;
-
+    private final EleveurRepository eleveurRepository;
+    @Override
     public Eleveur getEleveurById(String id) {
 //  return eleveurRepository.findBy( id);
         return  null;
     }
+    @Override
     public List<Eleveur> getAllEleveur() {
         return eleveurRepository.findAll();
     }
-
+    @Override
     public Eleveur saveEleveur(Eleveur eleveur) {
         return eleveurRepository.save(eleveur);
     }
+    @Override
     public Eleveur updateEleveur(Eleveur eleveur) {
         return eleveurRepository.save(eleveur);
     }
+    @Override
     public void deleteEleveur(String id) {
-        eleveurRepository.deleteById(id);
+        eleveurRepository.deleteById((String) id);
     }
 }
