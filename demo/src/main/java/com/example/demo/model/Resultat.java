@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -25,14 +25,14 @@ public class Resultat {
 
     @Setter
     @Getter
-    private LocalTime heureArrivee;
+    private Date heureArrivee;
 
     @Setter
     @Getter
     private Competition competition;
 
 
-    public Resultat(String numeroBague, LocalTime heureArrivee, Competition competition) {
+    public Resultat(String numeroBague, Date heureArrivee, Competition competition) {
         this.numeroBague = numeroBague;
         this.heureArrivee = heureArrivee;
         this.competition = competition;
