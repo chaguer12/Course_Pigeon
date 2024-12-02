@@ -14,7 +14,7 @@ public class Resultat {
 
 @Getter
 @Setter
-@Document(collection = "resultats")
+@Enti
 public class Resultat {
 
 

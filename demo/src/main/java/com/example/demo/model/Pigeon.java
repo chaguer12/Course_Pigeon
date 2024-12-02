@@ -1,23 +1,25 @@
 package com.example.demo.model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-=======
+
 import com.example.demo.model.enums.Sexe;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import java.util.Date;
 
-@Document
+@Entity
 public class Pigeon {
     @Setter
     @Getter
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
 
     @Setter
@@ -26,12 +28,8 @@ public class Pigeon {
 
     @Setter
     @Getter
-    @Indexed(unique = true)
     private String ringNumber;
 
-    @Setter
-    @Getter
-    private String sexe;
 
     @Getter
     @Setter

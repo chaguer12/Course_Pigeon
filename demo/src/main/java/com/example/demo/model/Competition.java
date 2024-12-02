@@ -3,8 +3,11 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -12,10 +15,11 @@ import java.util.Date;
 import java.util.List;
 
 
-@Document
+@Entity
 public class Competition {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     private String competitionName;
     private String cordGPS;
@@ -37,7 +41,7 @@ public class Competition {
 
     public Competition() {}
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
