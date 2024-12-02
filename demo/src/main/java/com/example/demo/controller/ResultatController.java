@@ -25,7 +25,7 @@ public class ResultatController {
             @RequestBody List<Resultat> resultats) {
 
         for (Resultat resultat : resultats) {
-            resultat.setCompetition(competitionService.getCompetitionById(competitionId));
+            resultat.setCompetition(competitionService.getCompetitionById(Integer.parseInt(competitionId)));
         }
 
         resultatService.saveAllResultats(resultats);

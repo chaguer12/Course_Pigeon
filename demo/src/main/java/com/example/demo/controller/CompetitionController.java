@@ -25,7 +25,7 @@ public class CompetitionController {
 
         @GetMapping("/{id}")
         public Competition getCompetitionById(@PathVariable String id) {
-            return competitionService.getCompetitionById(id);
+            return competitionService.getCompetitionById(Integer.parseInt(id));
         }
 
         @PostMapping
@@ -35,7 +35,7 @@ public class CompetitionController {
 
         @DeleteMapping("/{id}")
         public void deleteCompetition(@PathVariable String id) {
-            competitionService.deleteCompetition(id);
+            competitionService.deleteCompetition(Integer.parseInt(id));
         }
 
 }

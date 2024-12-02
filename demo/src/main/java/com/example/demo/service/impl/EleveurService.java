@@ -18,9 +18,9 @@ public class EleveurService implements ElveurServiceInterface {
 
     private final EleveurRepository eleveurRepository;
     @Override
-    public Eleveur getEleveurById(String id) {
-//  return eleveurRepository.findBy( id);
-        return  null;
+    public Eleveur getEleveurById(int id) {
+         return eleveurRepository.findById(id).orElseThrow(()-> new RuntimeException("Eleveur non trouve"));
+
     }
     @Override
     public List<Eleveur> getAllEleveur() {
@@ -35,7 +35,7 @@ public class EleveurService implements ElveurServiceInterface {
         return eleveurRepository.save(eleveur);
     }
     @Override
-    public void deleteEleveur(String id) {
-        eleveurRepository.deleteById((String) id);
+    public void deleteEleveur(int id) {
+        eleveurRepository.deleteById(id);
     }
 }

@@ -41,12 +41,12 @@ public class PigeonController {
 
     @DeleteMapping("/{id}")
     public void deletePigeon(@PathVariable String id){
-        pigeonService.deletePigeon(id);
+        pigeonService.deletePigeon(Integer.parseInt(id));
     }
     @PostMapping("/assign")
     public ResponseEntity<Competition> assignPigeon(@RequestBody AssignRequest req){
         System.out.println("hnaaaa : " + req.id());
-        Competition comp = pigeonService.assignPigeon(req.ringNumber(), req.id());
+        Competition comp = pigeonService.assignPigeon(req.ringNumber(), Integer.parseInt(req.id()));
         return  ResponseEntity.status(HttpStatus.FOUND).body(comp);
     }
 

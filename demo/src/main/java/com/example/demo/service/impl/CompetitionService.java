@@ -14,7 +14,7 @@ import java.util.List;
 public class CompetitionService implements CompetitionServiceInterface {
     private final CompetitionRepository competitionRepository;
     @Override
-    public Competition getCompetitionById(String id){
+    public Competition getCompetitionById(int id){
             return competitionRepository.findById(id).orElseThrow(()-> new RuntimeException("Entity not found"));
     }
     @Override
@@ -30,7 +30,7 @@ public class CompetitionService implements CompetitionServiceInterface {
         return competitionRepository.save(competition);
     }
     @Override
-    public void deleteCompetition(String id){
+    public void deleteCompetition(int id){
         competitionRepository.deleteById(id);
     }
 }

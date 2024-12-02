@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ResultatServiceInterface {
-    void deleteResultat(String id);
+    void deleteResultat(int id);
     Resultat saveResultat(Resultat resultat);
     List<Resultat> getAllResultats();
     void saveAllResultats(List<Resultat> resultats);

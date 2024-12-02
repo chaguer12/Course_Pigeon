@@ -9,8 +9,8 @@ import java.util.Optional;
 
 public interface PigeonServiceInterface {
     List<Pigeon> getAllPigeons();
-    Optional<Pigeon> getPigeonById(String id);
+    Optional<Pigeon> getPigeonById(int id);
     Pigeon savePigeon(Pigeon pigeon);
-    void deletePigeon(String id);
-    Competition assignPigeon(String ringNumber, String id);
+    void deletePigeon(int id);
+    Competition assignPigeon(String ringNumber, int id);
 }

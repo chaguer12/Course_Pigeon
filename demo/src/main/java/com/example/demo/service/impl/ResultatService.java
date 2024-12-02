@@ -23,7 +23,7 @@ public class ResultatService implements ResultatServiceInterface {
     }
 
     @Override
-    public void deleteResultat(String id) {
+    public void deleteResultat(int id) {
         resultatRepository.deleteById(id);
     }
 

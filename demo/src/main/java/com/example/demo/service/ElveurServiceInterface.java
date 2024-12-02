@@ -5,9 +5,9 @@ import com.example.demo.model.Eleveur;
 import java.util.List;
 
 public interface ElveurServiceInterface {
-    Eleveur getEleveurById(String id);
+    Eleveur getEleveurById(int id);
     List<Eleveur> getAllEleveur();
     Eleveur saveEleveur(Eleveur eleveur);
     Eleveur updateEleveur(Eleveur eleveur);
-    void deleteEleveur(String id);
+    void deleteEleveur(int id);
 }

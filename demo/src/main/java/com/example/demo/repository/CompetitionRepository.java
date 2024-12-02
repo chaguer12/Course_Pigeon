@@ -1,11 +1,10 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Competition;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface CompetitionRepository extends CrudRepository<Competition, Integer> {
+public interface CompetitionRepository extends JpaRepository<Competition, Integer> {
     Optional<Competition> findById(String id);
 }

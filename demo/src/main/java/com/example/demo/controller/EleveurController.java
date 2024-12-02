@@ -27,7 +27,7 @@ public class EleveurController {
 
     @GetMapping("/{id}")
     public Eleveur getEleveurById(@PathVariable String id) {
-        return eleveurService.getEleveurById(id);
+        return eleveurService.getEleveurById(Integer.parseInt(id));
     }
 
     @PostMapping
@@ -37,7 +37,7 @@ public class EleveurController {
 
     @DeleteMapping("/{id}")
     public void deleteEleveur(@PathVariable String id) {
-        eleveurService.deleteEleveur(id);
+        eleveurService.deleteEleveur(Integer.parseInt(id));
     }
 
 }

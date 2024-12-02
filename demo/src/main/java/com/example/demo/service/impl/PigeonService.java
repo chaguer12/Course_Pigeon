@@ -30,7 +30,7 @@ public class PigeonService implements PigeonServiceInterface {
         return pigeonRepository.findAll();
     }
     @Override
-    public Optional<Pigeon> getPigeonById(String id) {
+    public Optional<Pigeon> getPigeonById(int id) {
         return pigeonRepository.findById(id);
     }
     @Override
@@ -44,11 +44,11 @@ public class PigeonService implements PigeonServiceInterface {
         return pigeonRepository.save(pigeon);
     }
     @Override
-    public void deletePigeon(String id) {
+    public void deletePigeon(int id) {
         pigeonRepository.deleteById(id);
     }
     @Override
-    public Competition assignPigeon(String ringNumber, String id){
+    public Competition assignPigeon(String ringNumber, int id){
 
         Competition comp = compRepo.findById(id).orElseThrow(() -> new RuntimeException("Entity not found"));
         Pigeon pig = pigeonRepository.findByRingNumber(ringNumber).orElseThrow(() -> new  RuntimeException("Entity not found"));

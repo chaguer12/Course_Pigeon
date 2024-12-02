@@ -7,8 +7,8 @@ import java.util.List;
 public interface CompetitionServiceInterface {
     Competition saveCompetition(Competition competition);
     List<Competition> getAllCompetitions();
-    Competition getCompetitionById(String id);
+    Competition getCompetitionById(int id);
     Competition updateCompetition(Competition competition);
-    void deleteCompetition(String id);
+    void deleteCompetition(int id);
 }
 
