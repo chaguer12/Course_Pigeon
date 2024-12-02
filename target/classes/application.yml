@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pigeonRace
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/pigeon
+    username: postgres
+    password: root
+    jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8082
+logging:
+  level:
+    root: DEBUG
