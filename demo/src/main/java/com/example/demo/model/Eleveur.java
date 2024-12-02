@@ -1,13 +1,20 @@
 package com.example.demo.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@Document
+@Getter
+@Setter
+@Entity
 public class Eleveur {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
 
     private String name;
     private String email;
@@ -15,7 +22,7 @@ public class Eleveur {
     private String colombierName;
     private String cordGPS;
 
-    public Eleveur(String id, String name, String email, String password, String colombierName, String cordGPS) {
+    public Eleveur(int id, String name, String email, String password, String colombierName, String cordGPS) {
 
         this.id = id;
         this.name = name;
@@ -37,42 +44,5 @@ public class Eleveur {
 
     }
 
-    public String getId(){
-        return id;
-    }
-    public void setId(String id){
-        this.id = id;
-    }
 
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-    public String getEmail(){
-        return email;
-    }
-    public void setEmail(String email){
-        this.email = email;
-    }
-    public String getPassword(){
-        return password;
-    }
-    public void setPassword(String password){
-        this.password = password;
-    }
-    public String getColombierName(){
-        return colombierName;
-    }
-    public void setColombierName(String colombierName){
-        this.colombierName = colombierName;
-    }
-    public String getCordGPS(){
-        return cordGPS;
-    }
-    public void setCordGPS(String cordGPS){
-        this.cordGPS = cordGPS;
-    }
 }

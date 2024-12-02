@@ -8,17 +8,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+@Getter
+@Setter
 @Entity
 public class Competition {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String competitionName;
@@ -41,67 +43,5 @@ public class Competition {
 
     public Competition() {}
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public void setCompetitionName(String competitionName) {
-        this.competitionName = competitionName;
-    }
-
-    public void setCordGPS(String cordGPS) {
-        this.cordGPS = cordGPS;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-    public String getId() {
-        return id;
-    }
-    public String getCompetitionName() {
-        return competitionName;
-    }
-    public String getCordGPS() {
-        return cordGPS;
-    }
-    public Date getStartDate() {
-        return startDate;
-    }
-    public double getDistance() {
-        return distance;
-    }
-
-    public void setPigeonRingNumbers(List<String> pigeonRingNumbers) {
-        this.pigeonRingNumbers = pigeonRingNumbers;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getCompetitionName() {
-        return competitionName;
-    }
-
-    public String getCordGPS() {
-        return cordGPS;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public double getDistance() {
-        return distance;
-    }
-
-    public List<String> getPigeonRingNumbers() {
-        return pigeonRingNumbers;
-    }
 }

@@ -33,13 +33,14 @@ public class UserController {
         }
     }
     @PostMapping()
-    public ResponseEntity<User> getUser(@RequestBody String id){
-       User user = service.findByEmail(id);
+    public ResponseEntity<User> getUser(@RequestBody String id) {
+        User user = service.findByEmail(id);
+        return ResponseEntity.ok(user);
+    }
 
-    public ResponseEntity<?> logInUser(@RequestBody User user, HttpServletRequest req){
+    public ResponseEntity<String> logInUser(@RequestBody User user){
         if (service.login(user.getEmail(),user.getPassword())) {
             User usr = service.findByEmail(user.getEmail());
-            req.getSession().setAttribute("loggedUser",usr);
             return ResponseEntity.status(100).build();
         }else{
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No user with these credentials was found");

@@ -1,38 +1,34 @@
 package com.example.demo.model;
 
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import java.util.Date;
-=======
-@Document
-public class Resultat {
-
 
 @Getter
 @Setter
-@Enti
+@Entity
+
 public class Resultat {
 
 
-    @Setter
-    @Getter
-    @Id
-    private String id;
 
-    @Setter
-    @Getter
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
+
     private String numeroBague;
 
-    @Setter
-    @Getter
     private Date heureArrivee;
 
-    @Setter
-    @Getter
+
+    @ManyToOne
+    @JoinColumn(name = "competition_id")
     private Competition competition;
 
 
