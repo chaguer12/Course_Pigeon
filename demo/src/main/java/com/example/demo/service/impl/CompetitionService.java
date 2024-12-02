@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.Competition;
 import com.example.demo.repository.CompetitionRepository;
+
 import com.example.demo.service.CompetitionServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ public class CompetitionService implements CompetitionServiceInterface {
     private final CompetitionRepository competitionRepository;
     @Override
     public Competition getCompetitionById(String id){
-            return competitionRepository.findById(id).get();
+            return competitionRepository.findById(id).orElseThrow(()-> new RuntimeException("Entity not found"));
     }
     @Override
     public List<Competition> getAllCompetitions(){

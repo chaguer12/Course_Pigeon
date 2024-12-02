@@ -1,5 +1,7 @@
+
 package com.example.demo.service;
 
+import com.example.demo.model.Competition;
 import com.example.demo.model.Pigeon;
 
 import java.util.List;
@@ -10,4 +12,5 @@ public interface PigeonServiceInterface {
     Optional<Pigeon> getPigeonById(String id);
     Pigeon savePigeon(Pigeon pigeon);
     void deletePigeon(String id);
+    Competition assignPigeon(String ringNumber, String id);
 }

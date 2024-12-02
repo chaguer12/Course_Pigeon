@@ -4,6 +4,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.UserServiceInterface;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,18 @@ public class UserController {
         return ResponseEntity.ok(usr);
     }
     @PostMapping("/log-in")
+    public ResponseEntity<?> logInUser(@RequestBody String email, String password, HttpServletRequest req){
+        if (service.login(email,password)) {
+            req.getSession().setAttribute("loggedUser",service.findByEmail(email));
+            return ResponseEntity.ok().build();
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PostMapping()
+    public ResponseEntity<User> getUser(@RequestBody String id){
+       User user = service.findByEmail(id);
+
     public ResponseEntity<?> logInUser(@RequestBody User user, HttpServletRequest req){
         if (service.login(user.getEmail(),user.getPassword())) {
             User usr = service.findByEmail(user.getEmail());

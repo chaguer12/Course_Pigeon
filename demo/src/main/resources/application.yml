@@ -1,4 +1,7 @@
 spring:
+  devtools:
+    restart:
+      enabled=false:
   application:
     name: pigeonRace
   data:
@@ -9,3 +12,13 @@ server:
   port: 8082
 
 debug: true
+devtools:
+  restart:
+    enabled: false
+
+servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
