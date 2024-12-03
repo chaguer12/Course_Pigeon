@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.exception.UserAlreadyExists;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepoInterface;
 import com.example.demo.service.UserServiceInterface;
@@ -20,13 +21,14 @@ public class UserService implements UserServiceInterface {
     @Override
     public User insertUser(User user){
         if(userRepo.findByEmail(user.getEmail()) == null){
-            //throw an exeption
-        }
         String encodePass = passwordEncoder.encode(user.getPassword());
         System.out.println("here !:" + user.getPassword() + " encoded: " + encodePass);
         user.setPassword(encodePass);
         userRepo.save(user);
         return user;
+        }else{
+            throw new UserAlreadyExists("User already exists with email: " + user.getEmail());
+        }
     }
 
     @Override
