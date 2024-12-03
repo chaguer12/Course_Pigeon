@@ -4,20 +4,24 @@ import com.example.demo.model.User;
 import com.example.demo.repository.UserRepoInterface;
 import com.example.demo.service.UserServiceInterface;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
+
 
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserServiceInterface {
 
     private final UserRepoInterface userRepo;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User insertUser(User user){
+        String encodePass = passwordEncoder.encode(user.getPassword());
+        System.out.println("here !:" + user.getPassword() + " encoded: " + encodePass);
+        user.setPassword(encodePass);
         userRepo.save(user);
         return user;
     }
