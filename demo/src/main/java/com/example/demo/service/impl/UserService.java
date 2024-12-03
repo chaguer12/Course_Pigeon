@@ -19,6 +19,9 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public User insertUser(User user){
+        if(userRepo.findByEmail(user.getEmail()) == null){
+            //throw an exeption
+        }
         String encodePass = passwordEncoder.encode(user.getPassword());
         System.out.println("here !:" + user.getPassword() + " encoded: " + encodePass);
         user.setPassword(encodePass);
