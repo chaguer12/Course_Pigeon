@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,11 +18,15 @@ public class User {
     private int age;
     private String email;
     private String password;
-    public User(String name,int age,String email, String password){
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+    public User(String name,int age,String email, String password,Role role){
         this.name = name;
         this.age = age;
         this.email= email;
         this.password = password;
+        this.role = role;
 
     }
     public User(){

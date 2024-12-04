@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.exception.UserAlreadyExists;
 import com.example.demo.model.User;
+import com.example.demo.model.enums.Role;
 import com.example.demo.repository.UserRepoInterface;
 import com.example.demo.service.UserServiceInterface;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +23,8 @@ public class UserService implements UserServiceInterface {
     public User insertUser(User user){
         if(userRepo.findByEmail(user.getEmail()) == null){
         String encodePass = passwordEncoder.encode(user.getPassword());
-        System.out.println("here !:" + user.getPassword() + " encoded: " + encodePass);
         user.setPassword(encodePass);
+        user.setRole(Role.ROLE_USER);
         userRepo.save(user);
         return user;
         }else{
